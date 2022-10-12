@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 
-var uri = "mongodb://localhost:27017/node-mailer";
+var uri =process.env.uri;
 
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).catch('connection failed');
 

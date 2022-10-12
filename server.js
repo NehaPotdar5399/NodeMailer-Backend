@@ -27,44 +27,44 @@ app.use(bodyParser.json());
 // app.use(bodyParser.json({limit: "50mb"}));
 // app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
+app.use("/",path);
 
 
+// app.post('/sendFormData', (req, res) => {
+//   console.log(req.body, 'data of form');
+//   var transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     host: 'smtp.gmail.com',
+//     secure: 'true',
+//     port: '465',
+//     auth: {
+//         user:"neharpotdar68@gmail.com",
+//         pass:"wjovcrvzojjpadkt"
+//     }
+//   });
 
-app.post('/sendFormData', (req, res) => {
-  console.log(req.body, 'data of form');
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    secure: 'true',
-    port: '465',
-    auth: {
-        user:"neha.potdar@mindbowser.com",
-        pass:"jhrypjuasoxqvnnh"
-    }
-  });
-
-  var mailOptions = {
-    from: req.body.from,
-    to: req.body.to, // must be Gmail
-    cc:`${req.body.name} <${req.body.email}>`,
-    subject: req.body.subject,
-    text:req.body.text,
+//   var mailOptions = {
+//     from: req.body.from,
+//     to: req.body.to, // must be Gmail
+//     cc:`${req.body.name} <${req.body.email}>`,
+//     subject: req.body.subject,
+//     text:req.body.text,
     
           
-  };
+//   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.status(200).json({
-        message: 'successfuly sent!'
-      })
-    }
-  });
+//   transporter.sendMail(mailOptions, (error, info) => {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log('Email sent: ' + info.response);
+//       res.status(200).json({
+//         message: 'successfuly sent!'
+//       })
+//     }
+//   });
 
-});
+// });
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
